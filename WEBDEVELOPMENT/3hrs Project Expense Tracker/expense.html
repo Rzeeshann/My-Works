@@ -30,6 +30,9 @@
                 }
                 localStorage.setItem(obj.desc, JSON.stringify(obj))
                 showNewUserOnScreen(obj);
+                event.target.number.value = ''
+                event.target.text.value = ''
+                event.target.category.value = ''
             } 
             window.addEventListener("DOMContentLoaded", () => {
                 const localStorageObj = localStorage;
@@ -44,21 +47,23 @@
             })
 
             function showNewUserOnScreen(user){
+                console.log(user);
                 const parentNode = document.getElementById('listofexpenses');
-                const childHTML = `<li id=${user.desc}> ${user.amt} - ${user.desc} -  ${user.category} 
-                                        <button onclick=deleteUser('${user.desc}')> Delete User </button>
-                                        <button onclick=editUserDetails('${user.desc}'), ('${user.amt}'), ('${user.category}'), '> Edit User </button>
+                const childHTML = `<li id='${user.desc}'> ${user.amt} - ${user.desc} -  ${user.category} 
+                                        <button onclick="deleteUser('${user.desc}')"> Delete User </button>
+                                        <button onclick="editUserDetails('${user.desc}', '${user.amt}', '${user.category}') "> Edit User </button>
                                      </li>`
 
                 parentNode.innerHTML = parentNode.innerHTML + childHTML;
+                console.log(parentNode);
             }
 
             function editUserDetails(desc,amt,category){
+                console.log(desc,amt,category)
                 document.getElementById('amt').value = amt;
                 document.getElementById('desc').value = desc;
                 document.getElementById('category').value = category;
-
-                deleteUser(desc,amt,category)
+                deleteUser(desc)
             }
 
 
@@ -66,13 +71,13 @@
                 console.log(desc)
                 localStorage.removeItem(desc);
                 removeUserFromScreen(desc);
-
             }
 
             function removeUserFromScreen(desc){
+                console.log(desc)
                 const parentNode = document.getElementById('listofexpenses');
                 const childNodeToBeDeleted = document.getElementById(desc);
-
+                console.log(childNodeToBeDeleted)
                 parentNode.removeChild(childNodeToBeDeleted)
             }
 
