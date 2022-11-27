@@ -58,6 +58,16 @@ function savetoLocalstorage(event) {
             //showNewUseronScreen(userDetails)
         }
 
+        window.addEventListener("DOMContentLoaded", () => {
+  axios
+    .get("https://crudcrud.com/api/8f08362282e84fe89b75ae0e62d35b5e/mydata")
+    .then((response) => {
+      for (let i = 0; i < response.data.length; i++) {
+        showNewUseronScreen(response.data[i]);
+      }
+    })
+    .catch((err) => console.log(err));
+});
         function showNewUseronScreen(userDetails){
              const d=document.getElementById('ul')
              const li= `<li id="${userDetails. My_Expense_Amount}"> '${userDetails.My_Expense_Amount}','${userDetails.Description}','${userDetails.category}'
