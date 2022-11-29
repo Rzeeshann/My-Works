@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    
+</head>
+<body>
+    
+    <form onsubmit="savetoCrudstorage(event)">
+        
+        <h2 style="text-align:center;color:rgb(83, 255, 71);background-color:orange">Book a Call</h2>
+        <h5 style="text-align:center;color:teal;background-color:rgb(248, 200, 129)">Book a call slot and out representative will call you within 1hr of selected time</h5>
+        <hr width="100%" size="4px">
+        <div class="wrapper">
+            <div class="input">
+                <label  for:"fullname" style="text-align:center">Name:</label><br>
+                <input id="name" type="text"    required><br><br>
+                <label for:"email">Email:</label><br>
+                <input type="email"  id="emailID"  required><br><br>
+                <label for="quantity">Phone:</label><br>
+                <input id="phone" required><br><br>
+                <label for="call-time">Time for Call:</label><br>
+            </div>
+              <div class="date">
+                  <input id="date" type="date" > <input id="time" type="time" >  <br><br>
+                  <button>Submit</button>
+              </div>
+            </div>
+            </form>
+             
+            <ul id="ul">
+               
+            </ul>
+
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+            <script src="project.js"></script>
+           
+
+</body>
+</html>
