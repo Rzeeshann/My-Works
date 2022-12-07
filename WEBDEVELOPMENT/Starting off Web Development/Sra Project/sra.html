@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPENSE TRACKER</title>
+    
+</head>
+<body>
+    
+    <fieldset>
+     <legend>   <h2 style="color:blueviolet">EXPENSE TRACKER</h2></legend>
+     
+    <form id="form">
+        <label for="AMOUNT"><b>Enter Expense Amount: </b></label>
+ <input type="text" id="amount" name="Amount" ><br><br>
+ <label for="DESCRIPTION"><b>Enter Description: </b></label>
+        <input type="text" id="des" name="Description" ><br><br>
+        <label for="CATEGORY"><b>Choose Category: </b></label>
+        <input type="text" id="cat" name="Category"><br><br>
+        <input type="button" value="Add Expense" onclick="savetoLocalstorage(event)">
+        <ul id="ul">
+        
+        </ul>
+       
+    </form>
+    </fieldset>
+    <fieldset>
+        <legend> <h2 style="color:blueviolet">DATA FROM LOCAL STORAGE</h2></legend>
+           </fieldset>
+        </input>
+</body>
+<script src="sra.js"></script>
+</html>

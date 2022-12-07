@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Expense Tracker</title>
+</head>
+   
+<body>
+
+    <div>
+        <h1>My Expense Tracker <style></style></h1>
+   <label >My Expense Amount:</label> 
+   <input type="number" id="amount"><br>
+   <br>
+   <label>Choose Description:</label> 
+    <input type="text" id="des"> <br>
+    <br>
+   <label >Choose a category:</label> 
+   <select    id="cat"> <br>
+    <option>Movie</option>
+    <option>Fuel</option>
+    <option>Food</option>
+    <option>Miscellanous</option>
+    <br>
+    <input type="button" value="Add Expense" onclick="savetoLocalstorage(event)">
+
+    <ul id="ul">
+        
+    </ul>
+
+   </div>
+
+    <script>
+function savetoLocalstorage(event) {
+                event.preventDefault();
+                
+            let userDetails = {
+                My_Expense_Amount : document.getElementById('amount').value,
+                Description: document.getElementById('des').value,
+                category :document.getElementById('cat').value
+              
+            }
+
+            let userDetails_serialized=JSON.stringify(userDetails)  
+           
+            localStorage.setItem(userDetails.My_Expense_Amount , userDetails_serialized)
+            showNewUseronScreen(userDetails)
+        }
+
+        function showNewUseronScreen(userDetails){
+             const d=document.getElementById('ul')
+             const li= `<li id="${userDetails. My_Expense_Amount}"> '${userDetails.My_Expense_Amount}','${userDetails.Description}','${userDetails.category}'
+              <button onclick = editUser('${ userDetails.My_Expense_Amount}','${userDetails.Description}','${userDetails.category}')> Edit </button> 
+              <button onclick = deleteUser('${userDetails.My_Expense_Amount}')> Delete </button> 
+               </li>`
+      d.innerHTML=d.innerHTML + li
+            }
+         
+          
+
+            function deleteUser(amount) {
+                let child = document.getElementById(amount)
+                let parent=document.getElementById('ul')
+                parent.removeChild(child)
+                localStorage.removeItem(amount)
+            }
+
+            function editUser(amount,description,category) {
+                
+            amount=document.getElementById('amount').value
+            description=document.getElementById('des').value
+            category=document.getElementById('cat').value
+
+            deleteUser(amount)
+            
+            }
+    </script>
+</body>
+</html>

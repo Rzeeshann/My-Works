@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Async-Await</h1>
+    <script>
+        const premovie = async() => {
+            const promise_wifebringticks = new Promise((resolve,reject)=> {
+            setTimeout(()=>{resolve('ticket')},3000)
+        })
+
+        const getpopcorn= new Promise((resolve,reject)=>resolve('popcorn'))
+
+        const getbutter= new Promise((resolve,reject)=>resolve('butter'))
+
+        const getcold_drink= new Promise((resolve,reject)=>resolve('coke'))
+
+        let ticket = await promise_wifebringticks
+
+        let [popcorn,butter,cold_drink] = await Promise.all([getpopcorn,getbutter,getcold_drink])
+        console.log(`${popcorn},${butter},${cold_drink}`)
+
+        return ticket;
+        }
+           
+        premovie().then((t)=>console.log(t))
+    </script>
+</body>
+</html>

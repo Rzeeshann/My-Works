@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Promises_2</h1>
+    <script>
+       
+        const promise_wifebringticks = new Promise((resolve,reject)=> {
+            setTimeout(()=>{
+                resolve('ticket')
+            },3000)
+        })
+
+        const popcorn= promise_wifebringticks.then((t)=>{
+            return new Promise((resolve,reject)=>{
+                resolve(`${t} Popcorn`)
+            })
+           
+        })
+
+       const getButter=popcorn.then((t)=>{
+        return new Promise((resolve,reject)=>{
+           resolve(`${t} butter`)
+        })
+       })
+        
+
+    const getcolddrink= getButter.then((t)=>{
+        return new Promise((resolve,reject)=>{
+            resolve(`${t} Cold Drink`)
+        })
+    })
+
+    getcolddrink.then((t)=>console.log(t))
+       
+
+       
+    </script>
+</body>
+</html>

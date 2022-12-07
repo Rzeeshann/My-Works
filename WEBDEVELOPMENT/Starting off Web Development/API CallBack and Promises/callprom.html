@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         const posts=[
+            {title:'Post-One',body:'This is the post one'},
+            {title:'Post-Two',body:'This is the post two'}
+        ]
+        function getposts() {
+                setTimeout(() => {
+                let output=''
+               for(let i=0;i<posts.length;i++) {
+                output += `<li>${posts[i].body} </li>`
+               }
+                document.body.innerHTML = output
+            },1000)
+        }
+        const assyfn = async (post) => {
+            const createposts=new Promise((resolve,reject)=>{
+                 resolve(posts.push(post))
+            })
+            let creating = await createposts
+             return creating;
+        }
+         
+        assyfn({title:'Post-Three',body:'This is third post'}).then(console.log('Third post is created'))
+        assyfn({title:'Post-Fourth',body:'This is fourth post'}).then(console.log('Here I created one more post'))
+        
+        
+        
+
+      const assyfn2 = async() => {
+        const deleteposts=new Promise((resolve,reject)=>{
+            resolve(posts.pop())
+        })
+
+        let deleting = await deleteposts
+      }
+
+      assyfn2()
+      getposts()
+        
+    </script>
+</body>
+</html>
