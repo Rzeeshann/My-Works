@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce</title>
     <link rel="stylesheet" href="./web.css">
-    <script src="./index.js" defer></script>
+    <script src="./web.js" defer></script>
 </head>
 <body>
     <div id="EcommerceContainer">
         <header>
             <ul class='header'>
-                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./homeweb.html">HOME</a></li>
                 <li><a href="#">STORE</a></li>
-                <li><a href="./about.html">ABOUT</a></li>
+                <li><a href="./aboutweb.html">ABOUT</a></li>
                 <a href="#cart" class="cart-holder">cart<span class='cart-number'>0</span></a>
             </ul>
             <h1>SUPER BIKES</h1>
@@ -52,19 +52,38 @@
                         <button class="shop-item-button" type='button'>ADD TO CART</button>
                     </div>
                 </div>
-                <div id='bike3'>
+                <div id='bike4'>
                     <h3>BMW S 1000 RR</h3>
                     <div class="image-container">
                         <img class="prod-images" src="https://media.zigcdn.com/media/model/2020/Feb/s-100-rr_600x400.jpg" alt="">
                     </div>
                                     <div class="prod-details">
                         <span>₹<span>19.75L</span></span>
-                        <button class="shop-item-button" type='button'>ADD TO CART</button>
+                        <button class="addcart" type='button'>ADD TO CART</button>
                     </div>
                 </div>
             </div>
 
         </section>
+        <section id="cart" class="container">
+            <h2>CART</h2>
+            <button class="cancel">X</button>
+            <div class="cart-row cart-header">
+                <span class='cart-item cart-column'>ITEM</span>
+                <span class='cart-price cart-column'>PRICE</span>
+                <span class='cart-quantity cart-column'>QUANTITY</span>
+            </div>
+            <div class="cart-total">
+                <span>
+                    <span class='total-title'> <strong>Total</strong>
+                        </span>
+                    $<span id='total-value'>0</span>
+                </span>
+            </div>
+            <button class='purchase-btn' type='button'>PURCHASE</button>
+        </section>
+        <button class="cart-btn-bottom"> <a href="#cart" class="cart-bottom">See the cart</a></button>
+    </div>
     </div>
     <div id="container"></div>
     <footer>
