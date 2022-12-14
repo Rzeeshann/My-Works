@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce</title>
     <link rel="stylesheet" href="./web.css">
-    <script src="./web.js" defer></script>
+    <script src="./web.js" async></script>
 </head>
 <body>
     <div id="EcommerceContainer">
@@ -19,6 +19,9 @@
             </ul>
             <h1>SUPER BIKES</h1>
         </header>
+
+        <!-- ************************Bikes********************** -->
+
         <section id="bike" class="container">
             <h2>BIKES</h2>
             <div id ="bike-content">
@@ -59,12 +62,14 @@
                     </div>
                                     <div class="prod-details">
                         <span>₹<span>19.75L</span></span>
-                        <button class="addcart" type='button'>ADD TO CART</button>
+                        <button class="shop-item-button" type='button'>ADD TO CART</button>
                     </div>
                 </div>
             </div>
 
         </section>
+
+        <!-- **********Cart******* -->
         <section id="cart" class="container">
             <h2>CART</h2>
             <button class="cancel">X</button>
@@ -72,6 +77,8 @@
                 <span class='cart-item cart-column'>ITEM</span>
                 <span class='cart-price cart-column'>PRICE</span>
                 <span class='cart-quantity cart-column'>QUANTITY</span>
+            </div>
+            <div class='cart-items'>
             </div>
             <div class="cart-total">
                 <span>
@@ -86,6 +93,8 @@
     </div>
     </div>
     <div id="container"></div>
+
+   <!-- ******* Footer************ -->
     <footer>
         <div class="footer-title">
             CLASSIC SUPER BIKES
