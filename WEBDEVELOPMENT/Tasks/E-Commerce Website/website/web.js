@@ -25,7 +25,24 @@ window.addEventListener('DOMContentLoaded',(e) => {
 })
 
 
+function addtocart(productId) {
+    axios.post('http://localhost:3000/cart',{productId:productId})
+    .then((response)=>{
+        if(response.status === 400){
+            notifyusers(response.data.message)
+        } else {
+           throw new Error()
+        }
+       
+    })
+    .catch((err)=>{
+        notifyusers(err.data.message)
+    })
+}
 
+function notifyusers(message) {
+   alert(`${message}`)
+}
 
 const cart_items = document.querySelector('#cart .cart-items');
 
@@ -52,7 +69,7 @@ parentContainer.addEventListener('click',(e)=>{
         document.querySelector('#total-value').innerText = `${total_cart_price}`;
         cart_item.innerHTML = `
         <span class='cart-item cart-column'>
-        <img class='cart-img' src="${img_src}" alt="">
+        <img class='cart-img' src="${products.data.data[i].imageUrl}" alt="">
             <span>${name}</span>
     </span>
     <span class='cart-price cart-column'>${price}</span>
@@ -97,3 +114,23 @@ parentContainer.addEventListener('click',(e)=>{
     }
 })
 
+const products = data.data.products;
+const parentSection = document.getElementById('Products');
+products.forEach(product => {
+    const productHtml = `
+    <div class='cart-items'>
+    <h1> src = ${products.data.data[i].title} </h1>
+    <img src = ${products.data.data[i].imageUrl}></img>
+    <button onClick="addToCart(${product.id})"> Add to Cart </button>
+    </div>`
+})
+
+function addToCart(productId){
+    axios.post('http://localhost:3000/cart', {productId: productId})
+    .then(response => {
+        console.log(response);
+    })
+    .catch(err => {
+       console.log(err) 
+    })
+}
