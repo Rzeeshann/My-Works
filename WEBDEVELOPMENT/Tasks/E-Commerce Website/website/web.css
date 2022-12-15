@@ -409,3 +409,171 @@ header ul a{
     border-radius:7px;
     padding:5px;
 }
+.cart-column {
+    display: flex;
+    align-items: center;
+    /* border-bottom: 1px solid black; */
+    margin-right: 6.25rem;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-row {
+    display: flex;
+    margin-right: 8.5rem;
+    
+}
+
+.cart-row2{
+  display:block;
+  align-items: center;
+  
+}
+
+.cart-item {
+    width: 100%;
+    }
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    color: #333;
+  }
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.btn-danger {
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: #CC4C4C;
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    display: block;
+    /* margin: 40px auto 180px auto; */
+    font-size: 1.5em;
+    width: 150px;
+    height: 60px;
+    background-color: white;
+    color:black;
+    border:2px solid black;
+    cursor: pointer;
+    margin-left: 12rem;
+}
+
+.container{
+margin: 0 0rem;
+margin-top: 0rem;
+
+}
+
+.section-header{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+ 
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-container.active {
+  display: flex;
+  justify-content: right;
+  
+  
+ }
+
+.popup {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  position: fixed;
+  width: 500px;
+  height: 800px;
+}
+
+#close{
+  background-color: #fff;
+  color: black;
+  font-size: 2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+ }
