@@ -1,3 +1,32 @@
+window.addEventListener('DOMContentLoaded',(e) => {
+    e.preventDefault()
+    axios.get('http://localhost:3000/products')
+    .then(products => {
+        console.log(products.data.data);
+       let parent =  document.getElementById('bike-content')
+       let child = ''
+       for(let i =0; i<products.data.data.length; i++){
+        child += `<div id='bike1'>
+        <h3>${products.data.data[i].title}</h3>
+        <div class="image-container">
+            <img class="prod-images" src=${products.data.data[i].imageUrl} alt="">
+        </div>
+        <div class="prod-details">
+            <span>₹<span>${products.data.data[i].price}</span></span>
+            <button class="shop-item-button" type='button'>ADD TO CART</button>
+        </div>
+    </div>`
+       }
+       parent.innerHTML += child
+    })
+    .catch(err => {
+        console.log(err);
+    })
+})
+
+
+
+
 const cart_items = document.querySelector('#cart .cart-items');
 
 
