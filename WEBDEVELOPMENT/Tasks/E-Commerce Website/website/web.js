@@ -1,6 +1,10 @@
+let c = 0;
+let cc = 1;
+let pag = document.getElementById('pagination');
+
 window.addEventListener('DOMContentLoaded',(e) => {
     e.preventDefault()
-    axios.get('http://localhost:3000/products')
+    axios.get('http://localhost:3000/limited?page=1')
     .then(products => {
         console.log(products.data.data);
        let parent =  document.getElementById('bike-content')
@@ -23,8 +27,59 @@ window.addEventListener('DOMContentLoaded',(e) => {
         console.log(err);
     })
     showingCart()
+    pagination()
     // updateCartTotal()
 })
+
+function pagination(e) {
+    axios.get("http://localhost:3000/products")
+    .then((productInfo)=>{
+        console.log(productInfo.data.data)
+      let number_of_pages;
+      if(productInfo.data.data.length%2 === 0) {
+         number_of_pages = Math.trunc(((productInfo.data.data.length)/2))
+      } else {
+         number_of_pages = Math.trunc(((productInfo.data.data.length)/2)+1)
+      }
+     
+      for (let i = 0; i < number_of_pages; i++) {
+        pag.innerHTML += `<button class="pagebtn" id="?page=${c++}">${cc++}</button> `;
+      }
+    })
+    .catch(err=>console.log(err))
+  }
+
+  pag.addEventListener('click', (e)=>{
+    let id = e.target.id;
+    console.log(id)
+    axios.get(`http://localhost:3000/limited${id}`)
+    .then(productInfo=>{
+      let products = productInfo.data.data;
+       let childHTML="";
+        let parent = document.getElementById('bike-content');
+        // console.log(products,parent)
+        products.forEach((product) => {
+           childHTML += ` <div class="albums">
+                  <input type="hidden" id="hidden" value="${product.id}">
+                  <h3 class="title">${product.title}</h3>
+                  <img
+                    class="images"
+                    src="${product.imageUrl}"
+                    alt="${product.title}"
+                  />
+                  <div class="price">
+                    <h4 class="amount">${product.price}$</h4>
+                    <button class="addcart" onclick="addtocart(${product.id})">Add to Cart</button>
+                    
+                  </div>
+                </div>`;
+  
+          
+        });
+        parent.innerHTML = childHTML;
+    })
+    .catch(err=>console.log(err))
+  })
 
 function addtocart(productId) {
     console.log(productId);

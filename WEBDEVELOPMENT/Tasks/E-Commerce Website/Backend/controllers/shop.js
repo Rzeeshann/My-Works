@@ -11,6 +11,24 @@ exports.getProducts = (req, res, next) => {
     });
 };
 
+exports.limitProducts = (req, res, next) => {
+  let pag = Number(req.query.page) 
+  let Limit = 2
+  Product.findAll({limit:2, 
+  offset: pag*Limit})
+    .then(products => {
+     res.status(200).json({data: products})
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({message: "Something Went Wrong"})
+    });
+};
+// exports.getProductInfo =(req,res, next) => {
+
+// }
+
+
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
   // Product.findAll({ where: { id: prodId } })
